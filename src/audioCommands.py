@@ -67,7 +67,7 @@ class AudioCommands:
         }
         # Threshold for similarity (to avoid accepting non-sense commands); one for words 2 letters or smaller and another for longer words:
         # NOTE: Seems like a pretty conservative threshold, but I tested it out and it seemed to work quite well
-        self.smallThresh = 1
+        self.shortThresh = 1
         self.longThresh = 2
         # Initialize the DeepSpeech model
         self.initializeModel()
@@ -190,7 +190,7 @@ class AudioCommands:
                                     key=lambda x: distances[x])
             word_guess = self.dictionary[min_dist_index]
             # Enforcing threshold for first pass of Levenshtein distance on each word of supposed command (two fixed values that vary w/ word length)
-            if ((len(transcribed_word) <= 2 and distances[min_dist_index] <= self.threshold) or (len(transcribed_word) > 2 and distances[min_dist_index] <= 2)):
+            if ((len(transcribed_word) <= 2 and distances[min_dist_index] <= self.shortThresh) or (len(transcribed_word) > self.longThresh and distances[min_dist_index] <= 2)):
                 new_transcription += word_guess + " "
 
         # In case threshold filtered out all words in the supposed command
@@ -202,8 +202,8 @@ class AudioCommands:
                         for possibility in self.commands]
         min_dist_index = min(range(len(distances)),
                                 key=lambda x: distances[x])
-        # Enforcing threshold a second time; now with full commands
-        if (distances[min_dist_index] > self.threshold):
+        # Enforcing threshold a second time; now with full commands (may not even be necessary)
+        if (distances[min_dist_index] > self.shortThresh):
                 return "Invalid command"
         transcription_guess = self.commands[min_dist_index]
         transcription = transcription_guess
