@@ -28,7 +28,7 @@ from std_msgs.msg import String
 # PRE-DEFINED LOCATIONS:
 testing = True
 if (not testing):
-    # Actual values
+    # Actual values (longer range; more suceptible to errors and timeouts given the amount of empty space in CROCHET and 60 second limit)
     PICKUP = [{'x': 6.09, 'y' : -11.5}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
     DROPOFF = PICKUP
     PARK = [{'x': 5.89, 'y' : -14.2}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
@@ -36,13 +36,13 @@ if (not testing):
     TABLE2 = [{'x': 3.68, 'y' : -6.15}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
     TABLE3 = [{'x': 2.17, 'y' : -6.71}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
 else:
-    # Testing values (shorter distances for quick tests; and 'Table 3' not used)
+    # Testing values (shorter distances for quick tests)
     PICKUP = [{'x': 0.44, 'y' : -7.48}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
     DROPOFF = PICKUP
-    PARK = [{'x': 1.3, 'y' : -8.29}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
-    TABLE1 = [{'x': -0.86, 'y' : -8.17}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
-    TABLE2 = [{'x': -0.328, 'y' : -8.91}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
-    TABLE3 = [{'x': 2.17, 'y' : -6.71}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
+    PARK = [{'x': 1.46, 'y' : -8.54}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
+    TABLE1 = [{'x': -0.488, 'y' : -7.21}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
+    TABLE2 = [{'x': -0.86, 'y' : -8.17}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
+    TABLE3 = [{'x': -0.328, 'y' : -8.91}, {'r1' : 0.000, 'r2' : 0.000, 'r3' : 1.000, 'r4' : 0.000}]
 
 POS = 0
 QUAT = 1
