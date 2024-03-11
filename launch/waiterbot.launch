@@ -1,0 +1,21 @@
+<launch>
+    <!-- Start the navigation launch file? -->
+    <!-- <include file="$(find turtlebot3_navigation)/turtlebot3_navigation.launch"/> -->
+
+    <!-- NOTE: Can uncomment text_input node and comment out audio_input node to work with text commands -->
+    <!-- Start text_input node -->
+    <!-- <node name="text_input" pkg="waiterbot" type="textCommands.py" output="screen"> -->
+    <!-- </node> -->
+
+    <!-- Start audio_input node -->
+    <node name="audio_input" pkg="waiterbot" type="audioCommands.py" output="screen">
+    </node>
+
+    <!-- Start waiterbot node -->
+    <node name="waiterbot" pkg="waiterbot" type="waiterbot.py" output="log">
+    </node>
+
+    <!-- Start executioner node -->
+    <node name="executioner" pkg="waiterbot" type="executeCommands.py" output="log">
+    </node>
+</launch>
