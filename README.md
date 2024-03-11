@@ -24,6 +24,8 @@ The objective of the WaiterBot is to automate the process of delivering orders t
 
 **NOTE:** Can uncomment the text_input node and comment out the audio_input node in the launch file to run the WaiterBot using text commands instead of audio.
 
+**ADDITIONAL NOTE:** Should also have an empty 'audioCmd' folder in the directory, where all the audio filed will be recorded and saved as .wav files. Folder not on repo since empty folders aren't pushed.
+
 ## Technologies Used
 ROS Noetic, Python, Mozilla DeepSpeech, SLAM Navigation/Mapping, actionlib, Turtlebot3 Burger, Logitech Webcam/Microphone
 
